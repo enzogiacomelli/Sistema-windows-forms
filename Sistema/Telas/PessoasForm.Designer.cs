@@ -364,7 +364,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 486);
+            ClientSize = new Size(682, 238);
             Controls.Add(groupBoxEndereco);
             Controls.Add(groupBoxUsuario);
             MaximizeBox = false;

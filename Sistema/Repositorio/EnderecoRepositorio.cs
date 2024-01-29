@@ -21,11 +21,10 @@ namespace Sistema.Repositorio
             try
             {
                 comando.ExecuteNonQuery();
-                MessageBox.Show("caiu aqui");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

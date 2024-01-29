@@ -60,7 +60,17 @@ namespace Sistema.Telas
             endereco.Apartamento = textBoxApartamento.Text;
             endereco.Complemento = textBoxComplemento.Text;
 
+            var pessoa = new PessoaModel();
+            pessoa.Nome = textBoxNome.Text;
+            pessoa.Sobrenome = textBoxSobrenome.Text;
+            pessoa.Telefone = maskedTextBoxTelefone.Text;
+            pessoa.Cpf = maskedTextBoxCpf.Text;
+            pessoa.Senha = textBoxSenha.Text;
+            pessoa.Endereco = endereco;
+
             EnderecoRepositorio.CadastrarEndereco(endereco);
+
+
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
