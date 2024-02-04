@@ -60,6 +60,11 @@ namespace Sistema.Telas
             endereco.Apartamento = textBoxApartamento.Text;
             endereco.Complemento = textBoxComplemento.Text;
 
+            var enderecoRepositorio = new EnderecoRepositorio();
+            enderecoRepositorio.Cadastrar(endereco);
+
+            endereco.Id = enderecoRepositorio.BuscarUltimoIdCadastrado();
+
             var pessoa = new PessoaModel();
             pessoa.Nome = textBoxNome.Text;
             pessoa.Sobrenome = textBoxSobrenome.Text;
@@ -68,9 +73,10 @@ namespace Sistema.Telas
             pessoa.Senha = textBoxSenha.Text;
             pessoa.Endereco = endereco;
 
-            EnderecoRepositorio.CadastrarEndereco(endereco);
 
 
+            var pessoaRepositorio = new PessoaRepositorio();
+            pessoaRepositorio.Cadastrar(pessoa);
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)

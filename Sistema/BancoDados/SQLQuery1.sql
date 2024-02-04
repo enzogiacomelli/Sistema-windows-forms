@@ -24,6 +24,12 @@ CREATE TABLE endereco(
 );
 */
 
---ALTER TABLE endereco DROP COLUMN ESTADO;
 
 select * from endereco
+select * from pessoas
+
+
+
+--SELECT TOP 1 id FROM endereco ORDER BY id DESC
+
+--INSERT INTO pessoas (NOME, SOBRENOME, TELEFONE, CPF, SENHA, ENDERECO) VALUES ('Enzo', 'Giacomelli', '(47)984747934', '12345678912', 'teste123', 1)
