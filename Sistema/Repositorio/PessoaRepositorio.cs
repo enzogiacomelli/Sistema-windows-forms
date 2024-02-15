@@ -8,13 +8,13 @@ namespace Sistema.Repositorio
         public void Cadastrar(PessoaModel pessoa)
         {
             var comando = ConexaoDb.Conectar();
-            comando.CommandText = "INSERT INTO pessoas (NOME, SOBRENOME, TELEFONE, CPF, SENHA, ENDERECO) VALUES (@NOME, @SOBRENOME, @TELEFONE, @CPF, @SENHA, @ENDERECO)";
+            comando.CommandText = $"INSERT INTO pessoas (NOME, SOBRENOME, TELEFONE, CPF, SENHA, ENDERECO) VALUES (@NOME, @SOBRENOME, @TELEFONE, @CPF, @SENHA, {pessoa.Endereco.Id})";
             comando.Parameters.AddWithValue("@NOME", pessoa.Nome);
             comando.Parameters.AddWithValue("@SOBRENOME", pessoa.Sobrenome);
             comando.Parameters.AddWithValue("@TELEFONE", pessoa.Telefone);
             comando.Parameters.AddWithValue("@CPF", pessoa.Cpf);
             comando.Parameters.AddWithValue("@SENHA", pessoa.Senha);
-            comando.Parameters.AddWithValue("@ENDERECO", pessoa.Endereco.Id);
+            //comando.Parameters.AddWithValue("@ENDERECO", pessoa.Endereco.Id);
 
             try
             {

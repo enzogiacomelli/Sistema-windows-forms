@@ -28,6 +28,7 @@ CREATE TABLE endereco(
 select * from endereco
 select * from pessoas
 
+SELECT TOP 1 id FROM endereco ORDER BY id DESC
 
 
 --SELECT TOP 1 id FROM endereco ORDER BY id DESC

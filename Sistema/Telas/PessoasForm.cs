@@ -44,12 +44,16 @@ namespace Sistema.Telas
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
 
-            if(textBoxCep.Text == string.Empty || textBoxUf.Text == string.Empty || textBoxBairro.Text == string.Empty || textBoxRua.Text == string.Empty || textBoxNumero.Text == string.Empty || textBoxCidade.Text == string.Empty) 
+            if (textBoxCep.Text == string.Empty || textBoxUf.Text == string.Empty || textBoxBairro.Text == string.Empty || textBoxRua.Text == string.Empty || textBoxNumero.Text == string.Empty || textBoxCidade.Text == string.Empty)
             {
                 MessageBox.Show("Preencha os campos corretamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            CadastrarPessoa();
+        }
 
+        public void CadastrarPessoa()
+        {
             var endereco = new EnderecoModel();
             endereco.Cep = textBoxCep.Text;
             endereco.Uf = textBoxUf.Text;
@@ -62,8 +66,17 @@ namespace Sistema.Telas
 
             var enderecoRepositorio = new EnderecoRepositorio();
             enderecoRepositorio.Cadastrar(endereco);
+            
 
-            endereco.Id = enderecoRepositorio.BuscarUltimoIdCadastrado();
+            try
+            {
+                endereco.Id = enderecoRepositorio.BuscarUltimoIdCadastrado();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             var pessoa = new PessoaModel();
             pessoa.Nome = textBoxNome.Text;
@@ -73,11 +86,11 @@ namespace Sistema.Telas
             pessoa.Senha = textBoxSenha.Text;
             pessoa.Endereco = endereco;
 
-
-
             var pessoaRepositorio = new PessoaRepositorio();
             pessoaRepositorio.Cadastrar(pessoa);
         }
+
+
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {

@@ -1,5 +1,6 @@
 ﻿using Sistema.Modelos;
 using Sistema.BancoDados;
+using System.Data;
 
 namespace Sistema.Repositorio
 {
@@ -34,8 +35,13 @@ namespace Sistema.Repositorio
             var comando = ConexaoDb.Conectar();
             comando.CommandText = "SELECT TOP 1 id FROM endereco ORDER BY id DESC";
 
-            var id = comando.ExecuteNonQuery();
+            DataTable tabelaEmMemoria = new DataTable();
+            tabelaEmMemoria.Load(comando.ExecuteReader());
             comando.Connection.Close();
+
+            DataRow linha = tabelaEmMemoria.Rows[0];
+
+            var id = Convert.ToInt32(linha["id"]);
             return id;
         }
     }
