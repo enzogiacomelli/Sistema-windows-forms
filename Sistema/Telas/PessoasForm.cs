@@ -13,7 +13,7 @@ namespace Sistema.Telas
 
         private void textBoxCep_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 if (textBoxCep.Text.Length == 8)
                 {
@@ -32,24 +32,18 @@ namespace Sistema.Telas
             }
         }
 
-        private void buttonLimparEndereco_Click(object sender, EventArgs e)
-        {
-            textBoxUf.Clear();
-            textBoxBairro.Clear();
-            textBoxCidade.Clear();
-            textBoxRua.Clear();
-            textBoxCep.Clear();
-        }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
 
-            if (textBoxCep.Text == string.Empty || textBoxUf.Text == string.Empty || textBoxBairro.Text == string.Empty || textBoxRua.Text == string.Empty || textBoxNumero.Text == string.Empty || textBoxCidade.Text == string.Empty)
+            if (textBoxCep.Text == string.Empty || textBoxUf.Text == string.Empty || textBoxBairro.Text == string.Empty || textBoxRua.Text == string.Empty || textBoxNumero.Text == string.Empty || textBoxCidade.Text == string.Empty
+                || textBoxNome.Text == string.Empty || textBoxSobrenome.Text == string.Empty || maskedTextBoxTelefone.Text == "(  )         " || maskedTextBoxCpf.Text == "   ,   ,   -  " || textBoxSenha.Text == string.Empty) 
             {
                 MessageBox.Show("Preencha os campos corretamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             CadastrarPessoa();
+            LimparCampos();
         }
 
         public void CadastrarPessoa()
@@ -67,16 +61,7 @@ namespace Sistema.Telas
             var enderecoRepositorio = new EnderecoRepositorio();
             enderecoRepositorio.Cadastrar(endereco);
             
-
-            try
-            {
-                endereco.Id = enderecoRepositorio.BuscarUltimoIdCadastrado();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+            endereco.Id = enderecoRepositorio.BuscarUltimoIdCadastrado();
 
             var pessoa = new PessoaModel();
             pessoa.Nome = textBoxNome.Text;
@@ -90,15 +75,27 @@ namespace Sistema.Telas
             pessoaRepositorio.Cadastrar(pessoa);
         }
 
-
-
         private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        public void LimparCampos()
         {
             textBoxNome.Clear();
             textBoxSobrenome.Clear();
             textBoxSenha.Clear();
             maskedTextBoxCpf.Clear();
             maskedTextBoxTelefone.Clear();
+
+            textBoxUf.Clear();
+            textBoxBairro.Clear();
+            textBoxCidade.Clear();
+            textBoxRua.Clear();
+            textBoxCep.Clear();
+            textBoxComplemento.Clear();
+            textBoxApartamento.Clear();
+            textBoxNumero.Clear();
         }
     }
 }

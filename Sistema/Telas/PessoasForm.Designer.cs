@@ -44,7 +44,6 @@
             labelSenha = new Label();
             notifyIcon1 = new NotifyIcon(components);
             groupBoxEndereco = new GroupBox();
-            buttonLimparEndereco = new Button();
             textBoxComplemento = new TextBox();
             textBoxNumero = new TextBox();
             textBoxRua = new TextBox();
@@ -88,14 +87,14 @@
             textBoxNome.Location = new Point(6, 37);
             textBoxNome.Name = "textBoxNome";
             textBoxNome.Size = new Size(154, 23);
-            textBoxNome.TabIndex = 2;
+            textBoxNome.TabIndex = 1;
             // 
             // textBoxSobrenome
             // 
             textBoxSobrenome.Location = new Point(166, 37);
             textBoxSobrenome.Name = "textBoxSobrenome";
-            textBoxSobrenome.Size = new Size(154, 23);
-            textBoxSobrenome.TabIndex = 3;
+            textBoxSobrenome.Size = new Size(158, 23);
+            textBoxSobrenome.TabIndex = 2;
             // 
             // labelCpf
             // 
@@ -117,8 +116,6 @@
             // 
             // groupBoxUsuario
             // 
-            groupBoxUsuario.Controls.Add(buttonLimpar);
-            groupBoxUsuario.Controls.Add(buttonCadastrar);
             groupBoxUsuario.Controls.Add(maskedTextBoxTelefone);
             groupBoxUsuario.Controls.Add(maskedTextBoxCpf);
             groupBoxUsuario.Controls.Add(textBoxSenha);
@@ -131,27 +128,27 @@
             groupBoxUsuario.Controls.Add(labelCpf);
             groupBoxUsuario.Location = new Point(12, 12);
             groupBoxUsuario.Name = "groupBoxUsuario";
-            groupBoxUsuario.Size = new Size(327, 142);
+            groupBoxUsuario.Size = new Size(332, 122);
             groupBoxUsuario.TabIndex = 8;
             groupBoxUsuario.TabStop = false;
             groupBoxUsuario.Text = "Usuário";
             // 
             // buttonLimpar
             // 
-            buttonLimpar.Location = new Point(166, 110);
+            buttonLimpar.Location = new Point(168, 212);
             buttonLimpar.Name = "buttonLimpar";
             buttonLimpar.Size = new Size(75, 23);
-            buttonLimpar.TabIndex = 13;
+            buttonLimpar.TabIndex = 14;
             buttonLimpar.Text = "Cancelar";
             buttonLimpar.UseVisualStyleBackColor = true;
             buttonLimpar.Click += buttonLimpar_Click;
             // 
             // buttonCadastrar
             // 
-            buttonCadastrar.Location = new Point(245, 110);
+            buttonCadastrar.Location = new Point(249, 212);
             buttonCadastrar.Name = "buttonCadastrar";
             buttonCadastrar.Size = new Size(75, 23);
-            buttonCadastrar.TabIndex = 12;
+            buttonCadastrar.TabIndex = 15;
             buttonCadastrar.Text = "Cadastrar";
             buttonCadastrar.UseVisualStyleBackColor = true;
             buttonCadastrar.Click += buttonCadastrar_Click;
@@ -162,7 +159,7 @@
             maskedTextBoxTelefone.Mask = "(00)000000000";
             maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             maskedTextBoxTelefone.Size = new Size(72, 23);
-            maskedTextBoxTelefone.TabIndex = 11;
+            maskedTextBoxTelefone.TabIndex = 3;
             // 
             // maskedTextBoxCpf
             // 
@@ -170,14 +167,14 @@
             maskedTextBoxCpf.Mask = "000.000.000-00";
             maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             maskedTextBoxCpf.Size = new Size(76, 23);
-            maskedTextBoxCpf.TabIndex = 10;
+            maskedTextBoxCpf.TabIndex = 4;
             // 
             // textBoxSenha
             // 
             textBoxSenha.Location = new Point(166, 81);
             textBoxSenha.Name = "textBoxSenha";
-            textBoxSenha.Size = new Size(154, 23);
-            textBoxSenha.TabIndex = 9;
+            textBoxSenha.Size = new Size(158, 23);
+            textBoxSenha.TabIndex = 5;
             textBoxSenha.UseSystemPasswordChar = true;
             // 
             // labelSenha
@@ -197,65 +194,56 @@
             // 
             // groupBoxEndereco
             // 
-            groupBoxEndereco.Controls.Add(buttonLimparEndereco);
+            groupBoxEndereco.Controls.Add(buttonLimpar);
+            groupBoxEndereco.Controls.Add(buttonCadastrar);
             groupBoxEndereco.Controls.Add(textBoxComplemento);
             groupBoxEndereco.Controls.Add(textBoxNumero);
-            groupBoxEndereco.Controls.Add(textBoxRua);
-            groupBoxEndereco.Controls.Add(labelNumero);
-            groupBoxEndereco.Controls.Add(labelApartamento);
-            groupBoxEndereco.Controls.Add(labelRua);
             groupBoxEndereco.Controls.Add(textBoxApartamento);
-            groupBoxEndereco.Controls.Add(labelComplemento);
+            groupBoxEndereco.Controls.Add(labelApartamento);
+            groupBoxEndereco.Controls.Add(textBoxRua);
+            groupBoxEndereco.Controls.Add(labelRua);
             groupBoxEndereco.Controls.Add(textBoxBairro);
-            groupBoxEndereco.Controls.Add(labelBairro);
             groupBoxEndereco.Controls.Add(textBoxCidade);
+            groupBoxEndereco.Controls.Add(labelComplemento);
+            groupBoxEndereco.Controls.Add(labelNumero);
             groupBoxEndereco.Controls.Add(labelCidade);
+            groupBoxEndereco.Controls.Add(labelBairro);
             groupBoxEndereco.Controls.Add(textBoxUf);
             groupBoxEndereco.Controls.Add(labelUf);
             groupBoxEndereco.Controls.Add(textBoxCep);
             groupBoxEndereco.Controls.Add(labelCep);
-            groupBoxEndereco.Location = new Point(345, 12);
+            groupBoxEndereco.Location = new Point(12, 140);
             groupBoxEndereco.Name = "groupBoxEndereco";
-            groupBoxEndereco.Size = new Size(327, 212);
+            groupBoxEndereco.Size = new Size(332, 252);
             groupBoxEndereco.TabIndex = 9;
             groupBoxEndereco.TabStop = false;
             groupBoxEndereco.Text = "Endereço";
             // 
-            // buttonLimparEndereco
-            // 
-            buttonLimparEndereco.Location = new Point(241, 171);
-            buttonLimparEndereco.Name = "buttonLimparEndereco";
-            buttonLimparEndereco.Size = new Size(75, 23);
-            buttonLimparEndereco.TabIndex = 18;
-            buttonLimparEndereco.Text = "Cancelar";
-            buttonLimparEndereco.UseVisualStyleBackColor = true;
-            buttonLimparEndereco.Click += buttonLimparEndereco_Click;
-            // 
             // textBoxComplemento
             // 
-            textBoxComplemento.Location = new Point(7, 172);
+            textBoxComplemento.Location = new Point(7, 168);
             textBoxComplemento.Name = "textBoxComplemento";
-            textBoxComplemento.Size = new Size(228, 23);
-            textBoxComplemento.TabIndex = 17;
+            textBoxComplemento.Size = new Size(317, 23);
+            textBoxComplemento.TabIndex = 11;
             // 
             // textBoxNumero
             // 
-            textBoxNumero.Location = new Point(7, 125);
+            textBoxNumero.Location = new Point(6, 212);
             textBoxNumero.Name = "textBoxNumero";
             textBoxNumero.Size = new Size(75, 23);
-            textBoxNumero.TabIndex = 9;
+            textBoxNumero.TabIndex = 12;
             // 
             // textBoxRua
             // 
-            textBoxRua.Location = new Point(173, 81);
+            textBoxRua.Location = new Point(6, 81);
             textBoxRua.Name = "textBoxRua";
-            textBoxRua.Size = new Size(143, 23);
-            textBoxRua.TabIndex = 15;
+            textBoxRua.Size = new Size(318, 23);
+            textBoxRua.TabIndex = 9;
             // 
             // labelNumero
             // 
             labelNumero.AutoSize = true;
-            labelNumero.Location = new Point(7, 107);
+            labelNumero.Location = new Point(7, 194);
             labelNumero.Name = "labelNumero";
             labelNumero.Size = new Size(51, 15);
             labelNumero.TabIndex = 8;
@@ -264,7 +252,7 @@
             // labelApartamento
             // 
             labelApartamento.AutoSize = true;
-            labelApartamento.Location = new Point(86, 107);
+            labelApartamento.Location = new Point(85, 194);
             labelApartamento.Name = "labelApartamento";
             labelApartamento.Size = new Size(77, 15);
             labelApartamento.TabIndex = 10;
@@ -273,7 +261,7 @@
             // labelRua
             // 
             labelRua.AutoSize = true;
-            labelRua.Location = new Point(173, 63);
+            labelRua.Location = new Point(7, 63);
             labelRua.Name = "labelRua";
             labelRua.Size = new Size(27, 15);
             labelRua.TabIndex = 14;
@@ -281,15 +269,15 @@
             // 
             // textBoxApartamento
             // 
-            textBoxApartamento.Location = new Point(88, 125);
+            textBoxApartamento.Location = new Point(87, 212);
             textBoxApartamento.Name = "textBoxApartamento";
             textBoxApartamento.Size = new Size(75, 23);
-            textBoxApartamento.TabIndex = 11;
+            textBoxApartamento.TabIndex = 13;
             // 
             // labelComplemento
             // 
             labelComplemento.AutoSize = true;
-            labelComplemento.Location = new Point(7, 154);
+            labelComplemento.Location = new Point(7, 151);
             labelComplemento.Name = "labelComplemento";
             labelComplemento.Size = new Size(84, 15);
             labelComplemento.TabIndex = 16;
@@ -297,15 +285,15 @@
             // 
             // textBoxBairro
             // 
-            textBoxBairro.Location = new Point(7, 81);
+            textBoxBairro.Location = new Point(7, 125);
             textBoxBairro.Name = "textBoxBairro";
-            textBoxBairro.Size = new Size(160, 23);
-            textBoxBairro.TabIndex = 13;
+            textBoxBairro.Size = new Size(317, 23);
+            textBoxBairro.TabIndex = 10;
             // 
             // labelBairro
             // 
             labelBairro.AutoSize = true;
-            labelBairro.Location = new Point(7, 63);
+            labelBairro.Location = new Point(7, 107);
             labelBairro.Name = "labelBairro";
             labelBairro.Size = new Size(38, 15);
             labelBairro.TabIndex = 12;
@@ -315,8 +303,8 @@
             // 
             textBoxCidade.Location = new Point(156, 37);
             textBoxCidade.Name = "textBoxCidade";
-            textBoxCidade.Size = new Size(160, 23);
-            textBoxCidade.TabIndex = 7;
+            textBoxCidade.Size = new Size(168, 23);
+            textBoxCidade.TabIndex = 8;
             // 
             // labelCidade
             // 
@@ -332,7 +320,7 @@
             textBoxUf.Location = new Point(112, 37);
             textBoxUf.Name = "textBoxUf";
             textBoxUf.Size = new Size(38, 23);
-            textBoxUf.TabIndex = 5;
+            textBoxUf.TabIndex = 7;
             // 
             // labelUf
             // 
@@ -348,7 +336,7 @@
             textBoxCep.Location = new Point(6, 37);
             textBoxCep.Name = "textBoxCep";
             textBoxCep.Size = new Size(100, 23);
-            textBoxCep.TabIndex = 1;
+            textBoxCep.TabIndex = 6;
             textBoxCep.KeyDown += textBoxCep_KeyDown;
             // 
             // labelCep
@@ -364,7 +352,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 238);
+            ClientSize = new Size(354, 402);
             Controls.Add(groupBoxEndereco);
             Controls.Add(groupBoxUsuario);
             MaximizeBox = false;
@@ -412,6 +400,5 @@
         private Label labelRua;
         private TextBox textBoxBairro;
         private Label labelBairro;
-        private Button buttonLimparEndereco;
     }
 }

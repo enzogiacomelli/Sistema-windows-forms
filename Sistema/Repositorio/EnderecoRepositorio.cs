@@ -26,6 +26,7 @@ namespace Sistema.Repositorio
             catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             comando.Connection.Close();
         }
@@ -36,7 +37,16 @@ namespace Sistema.Repositorio
             comando.CommandText = "SELECT TOP 1 id FROM endereco ORDER BY id DESC";
 
             DataTable tabelaEmMemoria = new DataTable();
-            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            try
+            {
+                tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             comando.Connection.Close();
 
             DataRow linha = tabelaEmMemoria.Rows[0];
